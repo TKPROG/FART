@@ -167,7 +167,7 @@ public class FART extends JFrame{
 		}
 		String d = readAll(f);
 		if(d == null){
-			throw new Exception("Datei gab null zurück.");
+			throw new Exception("Datei gab null zurï¿½ck.");
 		}
 		
 		int pos = -1;
@@ -188,11 +188,11 @@ public class FART extends JFrame{
 		
 		File ff = new File(new File(res_path).getAbsolutePath()+"/"+f.getName());
 		if(ff.exists()){
-			if(JOptionPane.YES_OPTION != JOptionPane.showConfirmDialog(THIS, "Die Datei \""+ff.getName()+"\" existiert bereits. Möchten Sie diese Datei überschreiben?", "Überschreiben...?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)){
+			if(JOptionPane.YES_OPTION != JOptionPane.showConfirmDialog(THIS, "Die Datei \""+ff.getName()+"\" existiert bereits. Mï¿½chten Sie diese Datei ï¿½berschreiben?", "ï¿½berschreiben...?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)){
 				return;
 			}
 		}
-		BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ff)));
+		BufferedWriter bf = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(ff),"UTF8"));
 		bf.write(d);
 		bf.flush();
 		bf.close();
@@ -222,7 +222,7 @@ public class FART extends JFrame{
 	}
 
 	private String readAll(File f) throws Exception{
-		InputStreamReader isr = new InputStreamReader(new FileInputStream(f));
+		InputStreamReader isr = new InputStreamReader(new FileInputStream(f),"UTF8");
 		String d = "";
 		int dd = -1;
 		while((dd=isr.read())!=-1){
